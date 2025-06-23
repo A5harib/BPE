@@ -13,8 +13,19 @@ import Education from "./pages/Education"
 function App() {
   return (
     <div className="App">
+      <nav className="bg-indigo-800 text-white p-4">
+        <ul className="flex space-x-4">
+          <li><a href="/">Home</a></li>
+          <li><a href="/discovery">Discovery</a></li>
+          <li><a href="/oversight">OverSight</a></li>
+          <li><a href="/monitoring">Monitoring</a></li>
+          <li><a href="/manufacturing">Manufacturing</a></li>
+          <li><a href="/supply-chain">Supply Chain</a></li>
+          <li><a href="/quality">Quality</a></li>
+          <li><a href="/surveillance">Surveillance</a></li>
+        </ul>
+      </nav>
 
-      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/discovery" element={<Discovery />} />
