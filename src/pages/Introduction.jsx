@@ -67,7 +67,7 @@ const Introduction = () => {
 
     return (
         <div className='p-4'>
-            <div className="flex gap-4">
+            <div className="flex flex-row gap-4 ">
 
                 <div className='shadow-2xl rounded-lg w-fit  bg-white min-h-[40vh] overflow-hidden my-4 '>
                     <div className='w-full  bg-indigo-500 text-white text-2xl p-4'>Current Ideas proposed</div>
