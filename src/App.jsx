@@ -13,7 +13,7 @@ import Education from "./pages/Education"
 function App() {
   return (
     <div className="App">
-      <nav className="bg-indigo-800 text-white p-4">
+      <nav className="bg-indigo-800 text-white p-4 w-full">
         <ul className="flex space-x-4">
           <li><a href="/">Home</a></li>
           <li><a href="/discovery">Discovery</a></li>

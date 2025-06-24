@@ -17,7 +17,7 @@ const Home = () => {
             <br />
             <Link className="text-blue-500 hover:underline" to="/monitoring">
                 Real-time monitoring and analytics
-            </Link>     
+            </Link>
 
             <br />
             <Link className="text-blue-500 hover:underline" to="/manufacturing">
@@ -41,7 +41,7 @@ const Home = () => {
             </Link>
             <br />
             <Link className="text-blue-500 hover:underline" to="/introduction">
-                Introduction to our platform and services
+                New Product Introduction
             </Link>
             <br />
             <Link className="text-blue-500 hover:underline" to="/education">

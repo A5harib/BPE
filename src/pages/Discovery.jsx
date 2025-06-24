@@ -107,7 +107,7 @@ const Discovery = () => {
                                     <button className="mt-2 bg-green-300 px-3 py-1 rounded-sm" onClick={() => {
                                         // Submit the candidate
                                         setLeads([...leads, candidates]);
-                                        setCandidates({ name: "", target: "", testId: "", testResult: "", performedBy: "" });
+                                        setCandidates({ name: "", target: "", testId: "", testResult: "", performedBy: "", findingType: "" });
                                     }}>Submit Candidate</button>
                                 </div>
                             </div> : "No candidate selected"}
@@ -159,7 +159,6 @@ const Discovery = () => {
                                 <div>{lead.name}</div>
                                 <div className="text-sm text-neutral-500">Target: {lead.target}</div>
                                 {lead.testId ? <div className="text-sm text-neutral-500">Test ID: {lead.testId}</div> : null}
-
                                 {lead.testResult ? <div className="text-sm text-neutral-500">Test Result: {lead.testResult}</div> : null}
                                 {lead.performedBy ? <div className="text-sm text-neutral-500">Performed By: {lead.performedBy}</div> : null}
                                 <Dialog>
@@ -170,7 +169,7 @@ const Discovery = () => {
                                         <DialogHeader>
                                             <DialogTitle>Enter Test details</DialogTitle>
                                             <DialogDescription className={"flex flex-col gap-3"}>
-                                                <input className="border border-neutral-300 p-2 rounded-md w-full" type="number" placeholder="test ID" value={lead.testId} onChange={(e) => {
+                                                <input className="border border-neutral-300 p-2 rounded-md w-full" type="text" placeholder="test ID" value={lead.testId} onChange={(e) => {
                                                     const newLeads = [...leads];
                                                     newLeads[index].testId = e.target.value;
                                                     setLeads(newLeads);
@@ -192,16 +191,40 @@ const Discovery = () => {
                                         </DialogHeader>
                                     </DialogContent>
                                 </Dialog>
+                                {lead.findingType ? <div className="text-sm text-neutral-500">Finding Type: {lead.findingType}</div> : null}
+                                {lead.findingDetails ? <div className="text-sm text-neutral-500">Finding Details: {lead.findingDetails}</div> : null}
                                 <Dialog>
                                     <DialogTrigger className={"text-sm text-blue-500"}>Lab Findings for {lead.name}</DialogTrigger>
                                     <DialogContent>
-                                        <DialogHeader>
-                                            <DialogTitle>Are you absolutely sure?</DialogTitle>
-                                            <DialogDescription>
-                                                This action cannot be undone. This will permanently delete your account
-                                                and remove your data from our servers.
-                                            </DialogDescription>
-                                        </DialogHeader>
+                                        <DialogTitle>Edit Lab findings</DialogTitle>
+                                        <Select className="w-full m-2" value={lead.findingType}
+                                            onValueChange={(value) => {
+                                                const newLeads = [...leads];
+                                                newLeads[index].findingType = value;
+                                                setLeads(newLeads);
+                                            }}>
+                                            <SelectTrigger className="w-[180px] m-2">
+                                                <SelectValue placeholder="Finding Type" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+
+                                                <SelectItem value={"Molecular interaction"}>Molecular interaction</SelectItem>
+
+                                                <SelectItem value={"Toxicity"}>Toxicity</SelectItem>
+                                                <SelectItem value={"Binding Affinity"}>Binding Affinity</SelectItem>
+                                                <SelectItem value={"Side Effect"}>Side Effect</SelectItem>
+                                                <SelectItem value={"Structure Variation"}>Structure Variation</SelectItem>
+
+                                            </SelectContent>
+                                        </Select>
+                                        <input className="border border-neutral-300 p-2 rounded-md w-full m-2" type="text" placeholder="Finding details" value={lead.findingDetails} onChange={(e) => {
+                                            const newLeads = [...leads];
+                                            newLeads[index].findingDetails = e.target.value;
+                                            setLeads(newLeads);
+                                        }} />
+                                        <DialogClose asChild>
+                                            <button className="bg-indigo-500 text-white p-2 rounded"    variant="outline">Save</button>
+                                        </DialogClose>
                                     </DialogContent>
                                 </Dialog>
                             </li>
