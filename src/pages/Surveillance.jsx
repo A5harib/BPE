@@ -66,6 +66,10 @@ export default function Surveillance() {
 
     return (
         <div className="max-w-xl mx-auto mt-6">
+            <div className="text-center mb-4">
+                <h2 className="text-lg font-semibold">Surveillance Reporting</h2>
+                <p className="text-sm text-gray-600">Please fill out the form below to report an issue.</p>
+            </div>
             <Tabs defaultValue="User" className="w-full">
                 <TabsList className="w-full justify-center mb-4">
                     <TabsTrigger value="User">User</TabsTrigger>

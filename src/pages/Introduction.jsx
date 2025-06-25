@@ -67,6 +67,9 @@ const Introduction = () => {
 
     return (
         <div className='p-4'>
+            <div className="text-3xl font-bold text-center mb-6">
+                Product Introduction and Manufacturing Process
+            </div>
             <div className="flex flex-row gap-4 ">
 
                 <div className='shadow-2xl rounded-lg w-fit  bg-white min-h-[40vh] overflow-hidden my-4 '>
