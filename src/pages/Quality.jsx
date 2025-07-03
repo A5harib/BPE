@@ -47,8 +47,8 @@ const Quality = () => {
 
     return (
         <div className='  '>
-            <h1 className='text-3xl font-bold text-center my-5 underline'>Product Quality Management</h1>
-            <p className='text-center text-gray-700 '>Manage and monitor the quality of pharmaceutical products with real-time updates and checks.</p>
+            <h1 className="text-4xl font-extrabold text-indigo-800 mt-4 mb-2 text-center tracking-tight drop-shadow">Product Quality Management</h1>
+            <p className='mt-2 mb-6 text-center text-lg text-gray-700'>Manage and monitor the quality of pharmaceutical products with real-time updates and checks.</p>
             <div className="flex w-full">
 
                 <div className=' flex-1/2 rounded-lg shadow-2xl overflow-hidden bg-white max-w-3xl  m-10'>
