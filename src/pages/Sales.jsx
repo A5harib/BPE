@@ -34,6 +34,9 @@ const initialSalesData = [
 ];
 
 const Sales = () => {
+
+  const [adminCode, setAdminCode] = useState("");
+  const [adminAccess, setAdminAccess] = useState(false);
   const [strategies, setStrategies] = useState(initialStrategies);
   const [newStrategy, setNewStrategy] = useState({ title: "", description: "", effectiveness: "Medium" });
   const [salesData, setSalesData] = useState(initialSalesData);
@@ -94,7 +97,7 @@ const Sales = () => {
               </li>
             ))}
           </ul>
-          <div className="bg-indigo-50 rounded-xl p-4 shadow-inner">
+          {adminAccess ? (<div className="bg-indigo-50 rounded-xl p-4 shadow-inner">
             <h3 className="font-semibold mb-2 text-indigo-700">Add New Strategy</h3>
             <input
               className="w-full mb-2 p-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-indigo-400"
@@ -124,7 +127,30 @@ const Sales = () => {
             >
               Add Strategy
             </button>
-          </div>
+          </div>) : (<div className="flex flex-col gap-3 bg-white p-6 rounded-2xl shadow w-full max-w-md mx-auto">
+            <p className="text-gray-700 text-center text-lg font-medium">Enter admin access code to proceed:</p>
+            <input
+              type="password"
+              value={adminCode}
+              onChange={(e) => setAdminCode(e.target.value)}
+              placeholder="Enter admin code"
+              className="p-2 border border-indigo-200 rounded-md"
+            />
+            <button
+              onClick={() => {
+                if (adminCode === "admin505") {
+                  setAdminAccess(true);
+                  setAdminCode("");
+                } else {
+                  alert("Access Denied. Incorrect code.");
+                }
+              }}
+              className="bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 shadow"
+            >
+              Submit
+            </button>
+          </div>)}
+
         </div>
         {/* Sales Growth Chart & Controls */}
         <div className="bg-white/90 rounded-3xl shadow-2xl p-8 flex-1 min-w-[320px]">
@@ -139,7 +165,7 @@ const Sales = () => {
               <Bar dataKey="sales" fill="#6366f1" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
-          <div className="mt-6">
+          {adminAccess ? (<div className="mt-6">
             <h3 className="font-semibold text-indigo-700 mb-2">Adjust Monthly Sales</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {salesData.map((entry, idx) => (
@@ -163,7 +189,30 @@ const Sales = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div>) : (<div className="flex flex-col gap-3 bg-white p-6 rounded-2xl shadow w-full max-w-md mx-auto">
+            <p className="text-gray-700 text-center text-lg font-medium">Enter admin access code to proceed:</p>
+            <input
+              type="password"
+              value={adminCode}
+              onChange={(e) => setAdminCode(e.target.value)}
+              placeholder="Enter admin code"
+              className="p-2 border border-indigo-200 rounded-md"
+            />
+            <button
+              onClick={() => {
+                if (adminCode === "admin505") {
+                  setAdminAccess(true);
+                  setAdminCode("");
+                } else {
+                  alert("Access Denied. Incorrect code.");
+                }
+              }}
+              className="bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 shadow"
+            >
+              Submit
+            </button>
+          </div>)}
+
           <div className="mt-6 text-gray-600 text-sm bg-indigo-50 rounded-xl p-4 shadow-inner">
             <strong>Note:</strong> Sales growth is tracked monthly and reflects the impact of implemented promotional strategies.
           </div>

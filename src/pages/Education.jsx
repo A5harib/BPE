@@ -14,7 +14,9 @@ const Education = () => {
     const [messages, setMessages] = useState([
         "I have been studying this new course for a while now, and I find it very interesting.",
         "I have a question about the recent lecture on cardiology.",
-        "Can anyone recommend additional resources for learning about oncology?"
+        "Can anyone recommend additional resources for learning about oncology?",
+        "I just completed the pediatrics module and found it very insightful.",
+        "The discussion on mental health in our last class was very enlightening."
     ]);
     const [adminCode, setAdminCode] = useState("");
     const [adminAccess, setAdminAccess] = useState(false);

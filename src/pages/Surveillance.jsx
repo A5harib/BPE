@@ -277,7 +277,7 @@ export default function Surveillance() {
                             <button
                                 className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 w-full"
                                 onClick={() => {
-                                    if (adminCode === "505") {
+                                    if (adminCode === "admin505") {
                                         setAdminUnlocked(true);
                                         setAdminCode("");
                                     } else {

@@ -723,6 +723,9 @@ const RegulatoryTab = () => {
 
 
 export default function ClinicalStudyOversight() {
+  
+    const [adminCode, setAdminCode] = useState("");
+    const [adminAccess, setAdminAccess] = useState(false);
   return (
     <div className="container mx-auto p-4">
       <div className="text-center mb-8">
@@ -731,8 +734,7 @@ export default function ClinicalStudyOversight() {
           Manage data from Clinical Managers, CRAs, and Regulatory Affairs.
         </p>
       </div>
-
-      <Tabs defaultValue="ClinicalManager" className="w-full">
+    {adminAccess?(<Tabs defaultValue="ClinicalManager" className="w-full">
         <TabsList className="grid w-full grid-cols-3 md:grid-cols-3">
           <TabsTrigger value="ClinicalManager">Clinical Manager</TabsTrigger>
           <TabsTrigger value="CRA">CRA</TabsTrigger>
@@ -750,7 +752,31 @@ export default function ClinicalStudyOversight() {
         <TabsContent value="Regulatory" className="mt-4">
           <RegulatoryTab />
         </TabsContent>
-      </Tabs>
+      </Tabs>):( <div className="flex flex-col gap-3 bg-white p-6 rounded-2xl shadow w-full max-w-md mx-auto">
+                                <p className="text-gray-700 text-center text-lg font-medium">Enter admin access code to proceed:</p>
+                                <input
+                                    type="password"
+                                    value={adminCode}
+                                    onChange={(e) => setAdminCode(e.target.value)}
+                                    placeholder="Enter admin code"
+                                    className="p-2 border border-indigo-200 rounded-md"
+                                />
+                                <button
+                                    onClick={() => {
+                                        if (adminCode === "admin505") {
+                                            setAdminAccess(true);
+                                            setAdminCode("");
+                                        } else {
+                                            alert("Access Denied. Incorrect code.");
+                                        }
+                                    }}
+                                    className="bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 shadow"
+                                >
+                                    Submit
+                                </button>
+                            </div>)}
+      
+      
     </div>
   );
 }

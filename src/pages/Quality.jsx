@@ -44,12 +44,14 @@ const Quality = () => {
         });
     };
 
+    const [adminCode, setAdminCode] = useState("");
+    const [adminAccess, setAdminAccess] = useState(false);
 
     return (
         <div className='  '>
             <h1 className="text-4xl font-extrabold text-indigo-800 mt-4 mb-2 text-center tracking-tight drop-shadow">Product Quality Management</h1>
             <p className='mt-2 mb-6 text-center text-lg text-gray-700'>Manage and monitor the quality of pharmaceutical products with real-time updates and checks.</p>
-            <div className="flex w-full">
+            {adminAccess ? (<div className="flex w-full">
 
                 <div className=' flex-1/2 rounded-lg shadow-2xl overflow-hidden bg-white max-w-3xl  m-10'>
                     <div className='bg-indigo-500 p-4 text-white text-center text-xl font-bold'>
@@ -210,7 +212,30 @@ const Quality = () => {
                     </div>
                 )}
 
-            </div>
+            </div>) : (<div className="flex flex-col gap-3 bg-white p-6 rounded-2xl shadow w-full max-w-md mx-auto">
+                <p className="text-gray-700 text-center text-lg font-medium">Enter admin access code to proceed:</p>
+                <input
+                    type="password"
+                    value={adminCode}
+                    onChange={(e) => setAdminCode(e.target.value)}
+                    placeholder="Enter admin code"
+                    className="p-2 border border-indigo-200 rounded-md"
+                />
+                <button
+                    onClick={() => {
+                        if (adminCode === "admin505") {
+                            setAdminAccess(true);
+                            setAdminCode("");
+                        } else {
+                            alert("Access Denied. Incorrect code.");
+                        }
+                    }}
+                    className="bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 shadow"
+                >
+                    Submit
+                </button>
+            </div>)}
+
 
         </div>
     );

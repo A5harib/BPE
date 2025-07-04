@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200">
       {/* Header */}
-      <nav className="bg-indigo-800 text-white px-6 py-4 shadow w-full">
+      <nav className="bg-gradient-to-r from-purple-600 to-indigo-600  text-white px-6 py-4 shadow w-full">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Logo/Brand */}
           <div className="flex items-center space-x-3">

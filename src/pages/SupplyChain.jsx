@@ -53,6 +53,9 @@ import {
 } from "lucide-react";
 
 const SupplyChain = () => {
+
+  const [adminCode, setAdminCode] = useState("");
+  const [adminAccess, setAdminAccess] = useState(false);
   const [shipmentData, setShipmentData] = useState([
     { id: "SHP001", origin: "Lahore", destination: "Karachi", status: "In Transit" },
     { id: "SHP002", origin: "Islamabad", destination: "Lahore", status: "Delivered" },
@@ -176,8 +179,7 @@ const SupplyChain = () => {
           Supply Chain Dashboard
         </span>
       </h1>
-
-      <Tabs defaultValue="overview" className="space-y-6">
+      {adminAccess ? (<Tabs defaultValue="overview" className="space-y-6">
         <TabsList className="justify-center bg-purple-200 rounded-full p-2 mb-8 shadow-inner flex flex-wrap gap-3">
           <TabsTrigger value="overview" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-full px-5 py-2 transition-all duration-300">Overview</TabsTrigger>
           <TabsTrigger value="shipment" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-full px-5 py-2 transition-all duration-300">
@@ -552,7 +554,31 @@ const SupplyChain = () => {
             </CardContent>
           </Card>
         </TabsContent>
-      </Tabs>
+      </Tabs>) : (<div className="flex flex-col gap-3 bg-white p-6 rounded-2xl shadow w-full max-w-md mx-auto">
+        <p className="text-gray-700 text-center text-lg font-medium">Enter admin access code to proceed:</p>
+        <input
+          type="password"
+          value={adminCode}
+          onChange={(e) => setAdminCode(e.target.value)}
+          placeholder="Enter admin code"
+          className="p-2 border border-indigo-200 rounded-md"
+        />
+        <button
+          onClick={() => {
+            if (adminCode === "admin505") {
+              setAdminAccess(true);
+              setAdminCode("");
+            } else {
+              alert("Access Denied. Incorrect code.");
+            }
+          }}
+          className="bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 shadow"
+        >
+          Submit
+        </button>
+      </div>)}
+
+
     </div>
   );
 };

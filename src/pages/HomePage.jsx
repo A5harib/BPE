@@ -40,7 +40,7 @@ const Home = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {features.map((feature) => (
-                        <Link
+                        <Link 
                             key={feature.to}
                             to={feature.to}
                             className="block bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg px-5 py-4 text-indigo-800 font-semibold text-center shadow transition"
