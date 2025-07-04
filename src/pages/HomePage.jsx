@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 const features = [
     { to: "/discovery", label: "Innovative drug discovery" },
     { to: "/oversight", label: "Comprehensive oversight solutions" },
-    { to: "/monitoring", label: "Real-time monitoring and analytics" },
-    { to: "/manufacturing", label: "Streamlined manufacturing processes" },
+
     { to: "/supply-chain", label: "Optimized supply chain management" },
     { to: "/quality", label: "Enhanced quality assurance and compliance" },
     { to: "/surveillance", label: "Proactive surveillance and risk management" },

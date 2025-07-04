@@ -32,15 +32,14 @@ function App() {
             <Link className="hover:text-indigo-300 transition" to="/introduction">Introduction</Link>
             <Link className="hover:text-indigo-300 transition" to="/sales">Sales</Link>
             <Link className="hover:text-indigo-300 transition" to="/oversight">OverSight</Link>
-            <Link className="hover:text-indigo-300 transition" to="/monitoring">Monitoring</Link>
-            <Link className="hover:text-indigo-300 transition" to="/manufacturing">Manufacturing</Link>
+
             <Link className="hover:text-indigo-300 transition" to="/supply-chain">Supply Chain</Link>
             <Link className="hover:text-indigo-300 transition" to="/quality">Quality</Link>
           </div>
           {/* Profile or Sign In */}
           <div className="flex items-center space-x-2">
             <SignedIn>
-              <UserButton  />
+              <UserButton />
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">
